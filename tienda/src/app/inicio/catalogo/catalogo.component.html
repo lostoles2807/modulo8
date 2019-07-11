@@ -1,0 +1,38 @@
+
+<div class="row barra">
+  <div class="col-lg-6 infor">
+  
+  </div>
+  <div class="col-lg-6 buscar">
+      <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" name="busco" [(ngModel)]="busco">
+          <a [routerLink]="['../Busqueda', busco]" class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit"> Buscar</a>
+        </form>
+  </div>
+</div>
+<div class="row" >
+  <div class="col col-lg-3 mt-2" *ngFor="let articulos of productos">
+      <div class="card" style="width: 18rem;">
+          <img src="../../assets/img/{{articulos.nombre}}.jpg" class="card-img-top" alt="">
+          <hr>
+          <div class="card-body">
+              <form >
+                <h3>{{articulos.nombre}}</h3> 
+                <input type="hidden" name="nombre" value="{{articulos.nombre}}" #nombre readonly>
+                  <label for=""><strong>Precio:  {{articulos.precio}}</strong></label>
+                  <input type="hidden" name="precio" value="{{articulos.precio}}" #precio readonly> <br>
+                  <label for=""><strong>unid. Disp:  {{articulos.unidades}}</strong></label>  
+                  <input type="hidden" name="unidades" value="{{articulos.unidades}}" #unidades readonly> <br>    
+                  <a  type="button" class="btn btn-primary  mx-2"  [routerLink]="['../Detalle', articulos.id ]">Ver Mas</a>
+                  <button type="button" class="btn btn-warning  "   (click)="agregar(nombre.value, precio.value, cantidad.value, unidades.value, articulos.id)" >Añadir</button>
+                  <input type="number"  name="cantidad" value="0" id="cantidad" #cantidad>
+                </form>
+          </div>
+        </div>
+  </div>
+</div>
+
+  
+
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-warning">
+    <h2>Mi Carrito de compras</h2>
+  </div>
+  <div class="row carro">
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">logo</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">precio</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let carro of compra, index as i">
+              <th scope="row">{{i +1}}</th>
+              <td><img src="../../assets/img/{{carro.nombre}}.jpg" alt=""></td>
+              <td>{{carro.nombre}} <input type="hidden" #nombre name="nombre" value="{{carro.nombre}}"></td>
+              <td><input type="number" value="{{carro.cantidad}}" name="cant" #cant></td>
+              <td>{{carro.precio}} <input type="hidden" name="precio" #precio value="{{carro.precio}}"></td>
+              <td>{{carro.subtotal}} <input type="hidden" name="idt" #idt value="{{carro.id}}"></td>
+              <td><button><img src="../../assets/iconos/papelera.png" alt="" (click)="borrar(idt.value)" title="Eliminar Articulo"></button></td>
+              <td><button (click)="editar(nombre.value, precio.value, cant.value, idt.value)" title="Modificar Articulo"><img src="../../assets/iconos/editar.png" alt="" ></button></td>
+            </tr>
+            <tr>
+              <td colspan="4"><button class="btn btn-warning" (click)="comprar(compra)">Comprar</button></td>
+              <td colspan="4" ><h2>Total = {{totalizar}}</h2></td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  
+  

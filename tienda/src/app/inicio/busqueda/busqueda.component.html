@@ -1,0 +1,13 @@
+<div class="col col-lg-3 mt-2" *ngFor="let articul of prodt">
+  <div class="card" style="width: 18rem;">
+      <img src="../../assets/img/{{articul.nombre}}.jpg" class="card-img-top" alt="">
+      <hr>
+      <div class="card-body">
+          <form >
+            <h3>{{articul.nombre}}</h3> 
+              <label for=""><strong>Precio:  {{articul.precio}}</strong></label><br>
+              <label for=""><strong>unid. Disp:  {{articul.unidades}}</strong></label>      
+            </form>
+      </div>
+    </div>
+</div>
